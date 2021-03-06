@@ -1,0 +1,15 @@
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Binary
+bin/*
+
+# Misc.
+coverage.*
+.env
+testReport.xml
+bin
