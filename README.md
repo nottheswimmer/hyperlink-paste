@@ -7,7 +7,7 @@ Then it pastes.
 
 - [Git](https://git-scm.com/) v2.13+
 - [Go](https://golang.org/) v1.16+
-- xcode
+- Xcode
 
 ## Quick Start
 ```bash
