@@ -11,9 +11,6 @@ LINTER    := $(BIN_DIR)/golangci-lint
 $(COVER):
 	@go get -u golang.org/x/tools/cmd/cover
 
-$(GOVERALLS):
-	@go get -u github.com/mattn/goveralls
-
 $(LINTER):
 	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(BIN_DIR) v1.23.7
 
