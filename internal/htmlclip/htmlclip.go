@@ -25,6 +25,17 @@ var (
 	errInvalidOperation = errors.New("invalid operation")
 )
 
+// ClipAsHTML copies a byte string to the clipboard as HTML
+func ClipAsHTML(output []byte) {
+	arch := runtime.GOOS
+
+	// MacOS
+	if arch == "darwin" {
+		_ = lockedHTMLWrite(output)
+		return
+	}
+	log.Fatalf("The following architecture is unsupported: %s", arch)
+}
 
 // Due to the limitation on operating systems (such as darwin),
 // concurrent read can even cause panic, use a global lock to
@@ -73,16 +84,4 @@ func lockedHTMLWrite(buf []byte) <-chan struct{} {
 		return nil
 	}
 	return changed
-}
-
-// ClipAsHTML takes copies a byte string to the clipboard as HTML
-func ClipAsHTML(output []byte) {
-	arch := runtime.GOOS
-
-	// MacOS
-	if arch == "darwin" {
-		_ = lockedHTMLWrite(output)
-		return
-	}
-	log.Fatalf("The following architecture is unsupported: %s", arch);
 }
