@@ -2,9 +2,9 @@
 #import <Cocoa/Cocoa.h>
 
 int clipboard_write_html(const void *bytes, NSInteger n) {
-	NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-	NSData *data = [NSData dataWithBytes: bytes length: n];
-	[pasteboard clearContents];
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    NSData *data = [NSData dataWithBytes: bytes length: n];
+    [pasteboard clearContents];
     BOOL ok = [pasteboard setData: data forType:NSPasteboardTypeHTML];
     if (!ok) {
         return -1;
