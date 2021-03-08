@@ -9,14 +9,13 @@ int clipboard_write_html(const void *bytes, NSInteger n) {
     if (!ok) {
         return -1;
     }
-	ok = [pasteboard setData: data forType:NSPasteboardTypeString];
-	if (!ok) {
-		return -1;
-	}
-
-	return 0;
+    ok = [pasteboard setData: data forType:NSPasteboardTypeString];
+    if (!ok) {
+        return -1;
+    }
+    return 0;
 }
 
 NSInteger clipboard_change_count() {
-	return [[NSPasteboard generalPasteboard] changeCount];
+    return [[NSPasteboard generalPasteboard] changeCount];
 }
